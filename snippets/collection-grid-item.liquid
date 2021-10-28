@@ -2,6 +2,13 @@
   {%- assign background_position = 'top center' -%}
 {% endunless %}
 
+{% comment %} code added -am. wrap div. exclude collections {% endcomment %}
+{% unless collection.empty? %}
+      {%- assign collection_title2  = collection.title | escape -%}
+{% endunless %}
+{% unless collection_title2 contains 'Earrings' %}
+{% comment %} end -am change {% endcomment %}
+
 <div class="skrim__item">
   <a href="{{ collection.url }}" class="skrim__link">
     {%- if collection.empty? -%}
@@ -43,3 +50,5 @@
     </div>
   </a>
 </div>
+
+{% endunless %}
